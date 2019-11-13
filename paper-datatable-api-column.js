@@ -15,6 +15,10 @@ class DtPaperDatatableApiColumn
        * Property which will be available in data (throught paper-datatable-api).
        */
       property: String,
+      iconLink: {
+        type: String,
+        value: ''
+      },
       /**
        * If set, these other properties will be available in data (throught paper-datatable-api).
        * Usefull to keep id of the object.
@@ -103,6 +107,7 @@ class DtPaperDatatableApiColumn
     props.__key__ = true;
     props[this.header] = true;
     props[this.property] = true;
+    props[this.iconLink] = true;
     this._instanceProps = props;
 
     if (this.ctor) {
@@ -118,10 +123,12 @@ class DtPaperDatatableApiColumn
    * @property fillTemplate
    * @param {String} value The value of the property.
    */
-  fillTemplate(value, otherValues) {
-    const instance = this.stamp({ value, otherValues });
+  fillTemplate(value, otherValues, iconLink) {
+    const instance = this.stamp({ value, otherValues, iconLink });
     instance.value = value;
     instance.otherValues = otherValues;
+    instance.iconLink = iconLink
+
     return instance;
   }
 }
