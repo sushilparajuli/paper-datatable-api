@@ -318,6 +318,7 @@ class DtPaperDatatableApi extends Polymer.mixinBehaviors(
         }
 
         const valueFromRowData = this._extractData(rowData, paperDatatableApiColumn.property);
+        const iconLinkValue = this._extractData(rowData, paperDatatableApiColumn.iconLink);
 
         const otherPropertiesValue = {};
         paperDatatableApiColumn.otherProperties.forEach((property) => {
@@ -334,7 +335,8 @@ class DtPaperDatatableApi extends Polymer.mixinBehaviors(
 
         const instance = paperDatatableApiColumn.fillTemplate(
           valueFromRowData,
-          otherPropertiesValue
+          otherPropertiesValue,
+          iconLinkValue
         );
 
         if (paperDatatableApiColumn.hideable && paperDatatableApiColumn.hidden) {
